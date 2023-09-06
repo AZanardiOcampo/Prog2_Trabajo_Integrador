@@ -37,8 +37,6 @@ create table comentarios (
     foreign key (posteoId)  references posteo(id)
 );
 
-use usuario;
-
 insert into usuario (id, email, fotoPerfil, clave, fechaNac, dni) values
 (default, "goleroexperto@gmail.com", null, "golero123", 1998-09-24, 98765432),
 (default, "futbolamante@gmail.com", null, "amantefulbo", 2004-03-05, 36765432),
@@ -46,15 +44,67 @@ insert into usuario (id, email, fotoPerfil, clave, fechaNac, dni) values
 (default, "campodejuego@gmail.com", null, "campo", 2012-01-06, 47928032),
 (default, "entrenadorhabil@gmail.com", null, "dt", 1987-06-24, 55674032);
 
-use posteo;
-insert into posteo( id, usuarioId, url, pieImg) values
-(default, 1, "https://ar.pinterest.com/pin/879820477187056538/" , "Parado no bailão"),
-(default, 2, "https://ar.pinterest.com/pin/300896818871643042/" , "SIUUUUUUUUUUU"),
-(default, 3, "https://ar.pinterest.com/pin/26177241577705188/" , "TE AMO ARGENTINAAAA <3 <3"),
-(default, 4, "https://ar.pinterest.com/pin/32158584832113879/" , "Vinotinto de mi vida..."),
-(default, 5, "https://www.google.com/search?sca_esv=562548860&rlz=1C1UEAD_esAR1001AR1001&sxsrf=AB5stBhLy8zmNBzJdgEd_ZjSQfFizr9qnw:1693840563956&q=matias+coccaro+wallpaper&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjHmvvon5GBAxWNQ7gEHdy_DycQ0pQJegQIDBAB&biw=1664&bih=985&dpr=1.5#imgrc=RkhKEsSNYZaoQM
-" , "+3, Vamos globo!"),
-(default, 1, "https://ar.pinterest.com/pin/33495590970955186/" , "El ultimo Diez"),
-(default, 2, "https://ar.pinterest.com/pin/1337074885492709/" , "Caipirinha, samba e futebol"),
-(default, 3, "https://ar.pinterest.com/pin/1140044093164423904/" , "Kikando e me olhandooo"),
-(default, 4, "" , ""),
+insert into posteo(id, usuarioId, url, pieImg) values
+(default, 1, "https://i.pinimg.com/736x/49/19/a8/4919a8dc44184ea27159ad8e1e6dde41.jpg" , "Parado no bailão"),
+(default, 1, "https://i.pinimg.com/originals/30/56/6b/30566b73b45265855eec978630163a9e.jpg" , "El ultimo Diez"),
+(default, 2, "https://i.pinimg.com/originals/22/ad/21/22ad219ca0f55b0b46c8d79a556a56ae.jpg" , "SIUUUUUUUUUUU"),
+(default, 2, "https://i.pinimg.com/originals/34/21/2e/34212e4bf0581d9f528907987ff40f58.jpg" , "Caipirinha, samba e futebol"),
+(default, 3, "https://i.pinimg.com/originals/e5/33/20/e533200b8ffded0453a22c0cde450585.jpg" , "TE AMO ARGENTINAAAA <3 <3"),
+(default, 3, "https://i.pinimg.com/originals/f4/b3/6c/f4b36cef73d4dbbaf1a765cc97ed2b00.jpg" , "Kikando e me olhandooo"),
+(default, 4, "https://i.pinimg.com/originals/ad/f1/a6/adf1a69d625058b82066e88c76665b41.jpg" , "Vinotinto de mi vida..."),
+(default, 4, "https://i.pinimg.com/originals/6e/9a/61/6e9a612e1f3ea6344bc952e570e79ad8.jpg" , "Baila Dibu Baila"),
+(default, 5, "https://i.pinimg.com/originals/e2/c1/bc/e2c1bcfe56dbf10c545d06cf2c00512f.jpg" , "+3, Vamos globo!"),
+(default, 5, "https://i.pinimg.com/originals/98/59/a1/9859a1196280b00ef8cb5b1ae49b6268.jpg" , "Messi debuts for Inter Miami");
+
+insert into comentarios (id, usuarioId, posteoId, comentario) values
+/* NEYMAR */ /* PRIMER POSTEO DE USUARIO 1 */
+(default, 2, 1, "Vamos Santos !!!!!"), /* el usuario 2 comenta en el posteo 1 (que es del usuario 1), ese comentario */
+(default, 3, 1, "Te amo Neymar !!!!!"),
+(default, 4, 1, "La copa libertadores es mi obsesion"),
+(default, 5, 1, "Que Jogadorrrr..."),
+/* ROMAN */ /* SEGUNDO POSTEO DE USUARIO 1 */
+(default, 2, 2, "EL ULTIMO 10"),
+(default, 3, 2, "Roman, Boca es tu casa"),
+(default, 4, 2, "QUIERO LA LIBERTADOOOREEEEE"),
+(default, 5, 2, "Romanticoooo"),
+/* BICHO */ /* PRIMER POSTEO DE USUARIO 2 */
+(default, 1, 3, "THE GOAT"),
+(default, 3, 3, "Mr. Championsss"), 
+(default, 4, 3, "EL COMANDANTEEEE"), 
+(default, 5, 3, "Messi > Ronaldo"),
+/* DINHO */ /* SEGUNDO POSTEO DE USUARIO 2 */
+(default, 1, 4, "Zaaambaaaaa"),
+(default, 3, 4, "The magician"), 
+(default, 4, 4, "Futeboolll"), 
+(default, 5, 4, "Baila Dinho Baila"),
+/* MESSI */ /* PRIMER POSTEO DE USUARIO 3 */
+(default, 1, 5, "THE GOAT"),
+(default, 2, 5, "Muchaaaachooosssss"),
+(default, 4, 5, "Ronaldo > Messi"),
+(default, 5, 5, "HERMOSAAAAA"),
+/* NEY CHAMPIONS */ /* SEGUNDO POSTEO DE USUARIO 3  */
+(default, 1, 6, "Visca Barca"),
+(default, 2, 6, "Volveeeeee"),
+(default, 4, 6, "Neymar Barcelona > Neymar PSG"),
+(default, 5, 6, "Campeonesssss"),
+/* VENEZUELA */ /* PRIMER POSTEO DE USUARIO 4 */
+(default, 1, 7, "Grande Josefff!!!!!"),
+(default, 2, 7, "Idoloooo"),
+(default, 3, 7, "Vamos seleccioooonnnn"),
+(default, 5, 7, "Vinotiintooooo"),
+/* DIBU */ /* SEGUNDO POSTEO DE USUARIO 4*/
+(default, 1, 8, "SIIIIII"),
+(default, 2, 8, "Dibujeeeeee"),
+(default, 3, 8, "LO SIENTO PERO TE COMO HERMANO"),
+(default, 5, 8, "Genioooooo"),
+/* ZORRO */ /* PRIMER POSTEO DE USUARIO 5 */
+(default, 1, 9, "VAMO ARRIBAAA"),
+(default, 2, 9, "Vamos Globo de mi vidaaaaa"),
+(default, 3, 9, "Como te quiero bigoteeeeeee"),
+(default, 4, 9, "CRACK"),
+/* MESSI INTER */ /* SEGUNDO POSTEO DE USUARIO 5 */
+(default, 1, 10, "Vamos LEOOOOO"),
+(default, 2, 10, "El mejor de todos los tiempos"),
+(default, 3, 10, "COME ON MESSIIIII"),
+(default, 4, 10, "The Last Dance")
+;
