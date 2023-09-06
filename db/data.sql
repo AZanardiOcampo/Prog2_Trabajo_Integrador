@@ -1,4 +1,4 @@
-/* create schema proyecto */
+create schema proyecto;
 
 use proyecto;
 
@@ -7,42 +7,42 @@ create table usuario (
 	 email                   varchar(50)           not null,
      fotoPerfil              varchar(200),          
      clave                   varchar(200)          not null,
-     fechaNac                datetime              not null,
+     fechaNac                   date              not null,
      dni                        int                 unique not null,
      createdAt               timestamp default current_timestamp, 
      updatedAt               timestamp default current_timestamp on update current_timestamp,
-     deletedAt               timestamp on update current_timestamp
+     deletedAt               timestamp null
     );
 
 create table posteo (
       id                        int           unsigned primary key auto_increment,
-	usuarioId                   int                        not null,
+	usuarioId                   int                        unsigned not null,
       url                    varchar(500),
 	 pieImg                  varchar(500),          
      createdAt               timestamp default current_timestamp, 
      updatedAt               timestamp default current_timestamp on update current_timestamp,
-     deletedAt               timestamp on update current_timestamp,
+     deletedAt               timestamp null,
 	foreign key (usuarioId)  references usuario(id)
 );
 
 create table comentarios ( 
       id                        int           unsigned primary key auto_increment,
-	usuarioId                   int                        not null,
-	posteoId                    int                        not null,
+	usuarioId                   int                       unsigned not null,
+	posteoId                    int                       unsigned not null,
     comentario               varchar(500),
      createdAt               timestamp default current_timestamp, 
      updatedAt               timestamp default current_timestamp on update current_timestamp,
-     deletedAt               timestamp on update current_timestamp,
+     deletedAt               timestamp null,
 	foreign key (usuarioId)  references usuario(id),
     foreign key (posteoId)  references posteo(id)
 );
 
 insert into usuario (id, email, fotoPerfil, clave, fechaNac, dni) values
-(default, "goleroexperto@gmail.com", null, "golero123", 1998-09-24, 98765432),
-(default, "futbolamante@gmail.com", null, "amantefulbo", 2004-03-05, 36765432),
-(default, "jugadorestrella@gmail.com", null, "star", 1987-07-31, 47955432),
-(default, "campodejuego@gmail.com", null, "campo", 2012-01-06, 47928032),
-(default, "entrenadorhabil@gmail.com", null, "dt", 1987-06-24, 55674032);
+(default, "goleroexperto@gmail.com", null, "golero123", "1998-09-24", 98765432),
+(default, "futbolamante@gmail.com", null, "amantefulbo", "2004-03-05", 36765432),
+(default, "jugadorestrella@gmail.com", null, "star", "1987-07-31", 47955432),
+(default, "campodejuego@gmail.com", null, "campo", "2012-01-06", 47928032),
+(default, "entrenadorhabil@gmail.com", null, "dt", "1987-06-24", 55674032);
 
 insert into posteo(id, usuarioId, url, pieImg) values
 (default, 1, "https://i.pinimg.com/736x/49/19/a8/4919a8dc44184ea27159ad8e1e6dde41.jpg" , "Parado no bailão"),
