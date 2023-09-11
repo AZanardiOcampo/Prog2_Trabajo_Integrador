@@ -1,6 +1,6 @@
 const data = {
     usuarios: [{
-        id: 1 ,
+        nombreUsuario: "goleroexperto" ,
         email: "goleroexperto@gmail.com",
         fotoPerfil: null,
         clave: "golero123" ,
@@ -8,7 +8,7 @@ const data = {
         dni: 98765432
     },
     {
-        id: 2,
+        nombreUsuario: "futbolamante",
         email: "futbolamante@gmail.com",
         fotoPerfil: null,
         clave: "amantefulbo",
@@ -16,7 +16,7 @@ const data = {
         dni: 36765432
     },
     {
-        id: 3,
+        nombreUsuario: "jugadorestrella",
         email: "jugadorestrella@gmail.com",
         fotoPerfil: null,
         clave: "star",
@@ -24,7 +24,7 @@ const data = {
         dni: 47955432
     },
     {
-        id: 4,
+        nombreUsuario: "campodejuego",
         email: "campodejuego@gmail.com",
         fotoPerfil: null,
         clave: "campo",
@@ -32,7 +32,7 @@ const data = {
         dni: 47928032
     },
     {
-        id: 5,
+        nombreUsuario: "entrenadorhabil",
         email: "entrenadorhabil@gmail.com",
         fotoPerfil: null,
         clave: "dt",

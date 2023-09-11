@@ -6,6 +6,9 @@ const indexController = {
         return res.render('index', {datos: data.posteos});
     },
     registro: function (req, res) {
+        return res.render('registracion')
+    },
+    login: function(req,res){
         
     }
 }
