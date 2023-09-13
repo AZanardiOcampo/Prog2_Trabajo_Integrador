@@ -9,7 +9,7 @@ const indexController = {
         return res.render('registracion')
     },
     login: function(req,res){
-        
+        return res.render('login')   
     }
 }
 

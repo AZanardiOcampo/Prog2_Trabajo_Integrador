@@ -1,1 +1,20 @@
-const data = require('../db/data');
+const data = require('../../db/data');
+
+const usuariosController = {
+
+    detalle: function(req, res){
+        
+       let id = req.params.usuarioid
+
+       let usuarioEncontrado = []
+        for (let i = 0; i < data.posteos; i++) {
+           if(id == data.posteos[i].usuarioId){
+            usuarioEncontrado.push(data.posteos[i])
+           }
+        }
+
+        res.render("detalleUsuario", {datos: usuarioEncontrado})
+    }
+}
+
+module.exports = usuariosController 
