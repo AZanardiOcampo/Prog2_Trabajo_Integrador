@@ -15,7 +15,7 @@ const usuariosController = {
 
         res.render("detalleUsuario", {datos: usuarioEncontrado})
     },
-    detalle: function(req, res){
+    miPerfil: function(req, res){
         
         let id = req.params.usuarioId
         let usuarioEncontrado = []
