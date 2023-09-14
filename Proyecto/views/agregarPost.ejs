@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+    <%- include('./partials/header') %>
+
+    <main>
+        <section class="center main-content">
+        <h1>Nuevo producto</h1>
+        <form action= "/" method="get">
+            <label for="URL">URL</label>
+            <input type="text" name="URL" id="URL" value="" required>
+            <label for="pieImg">Caption</label>
+            <input type="text" name="pieImg" id="pieImg">
+            <button type="submit">Enviar</button>
+        </form>
+        </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+
+</body>
+
+</html>

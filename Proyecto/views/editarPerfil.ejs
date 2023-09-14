@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+    <%- include('./partials/header') %>
+
+    <main>
+        <section class="center main-content">
+        <h1>Editar perfil</h1>
+        <form action= "/login" method="get">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombreUsuario" id="nombreUsuario">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+            <label for="contrasenia">Contraseña</label>
+            <input type="text" name="contrasenia" id="clave">
+            <label for="foto">Foto de perfil</label>
+            <input id="foto" type="text" name="fotoPerfil" value="">
+            <button type="submit">Enviar</button>
+        </form>
+        </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+
+</body>
+
+</html>

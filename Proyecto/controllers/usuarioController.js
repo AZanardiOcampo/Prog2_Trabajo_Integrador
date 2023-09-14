@@ -27,6 +27,9 @@ const usuariosController = {
          }
  
          res.render("miPerfil", {datos: usuarioEncontrado})
+     },
+     editar: function(req,res){
+         res.render('editarPerfil')
      }
 }
 

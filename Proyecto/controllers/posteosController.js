@@ -2,7 +2,7 @@ const data = require('../../db/data');
 
 const posteosController ={
 agregarPost: function(req,res){
-
+    return res.render('agregarPost')
 },
 detallePost: function(req,res){
     let id = req.params.id;
