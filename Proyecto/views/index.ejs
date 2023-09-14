@@ -12,7 +12,12 @@
             
             <article class="post">
                 <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
+                    
+                    
+                    
+                    <img src="<%= datos[i].fotoPerfil %>" alt="" class="fotoPerfil">
+
+                    
                     <h4>
                         <a href="usuarios/detalle/<%= datos[i].usuarioId %>"><%= datos[i].nombreUsuario %></a>
                     </h4>
@@ -33,7 +38,7 @@
 
 
                 <div class="post-comentarios">
-                    <h3><%= datos[i].pieImg %></h3>
+                    <p><h3><%= datos[i].nombreUsuario %>: <%= datos[i].pieImg %></h3></p>
                     <h4>Comentarios</h4>
                     <ul>
 
