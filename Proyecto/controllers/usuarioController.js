@@ -7,7 +7,7 @@ const usuariosController = {
        let id = req.params.usuarioId
        let usuarioEncontrado = []
 
-        for (let i = 0; i < data.posteos; i++) {
+        for (let i = 0; i < data.posteos.length; i++) {
            if(id == data.posteos[i].usuarioId){
             usuarioEncontrado.push(data.posteos[i])
            }

@@ -18,7 +18,7 @@
                     </h4>
                 </div>
                 <div class="post-body">
-                    <a href="detallePost.html">
+                    <a href="/posteos/detalle/<%= datos[i].id %>">
                         <img src= <%= datos[i].url %> alt="">
                     </a>
                 </div>
@@ -40,7 +40,7 @@
                         <% for( let j = 0; j < datos[i].comentarios.length; j++ ) { %>
                           
                             <li>
-                                <a href="detalleUsuario.html"><%= datos[i].comentarios[j].usuario %></a>
+                                <a href="/usuarios/detalle/<%= datos[i].comentarios[j].usuarioId %>"><%= datos[i].comentarios[j].usuario %></a>
                                 <span><%= datos[i].comentarios[j].comentario  %></span>
                             </li>
 
