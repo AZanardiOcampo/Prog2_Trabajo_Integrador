@@ -33,14 +33,14 @@
 
 
                 <div class="post-comentarios">
-                    <h3><%= datos[i].pieImg %></h3>
+                    <p><h3><%= datos[i].nombreUsuario %>: <%= datos[i].pieImg %></h3></p>
                     <h4>Comentarios</h4>
                     <ul>
 
                         <% for( let j = 0; j < datos[i].comentarios.length; j++ ) { %>
                           
                             <li>
-                                <a href="detalleUsuario.html"><%= datos[i].comentarios[j].usuario %></a>
+                                <a href="usuarios/detalle/<%= datos[i].comentarios[j].usuarioId %>"><%= datos[i].comentarios[j].usuario %></a>
                                 <span><%= datos[i].comentarios[j].comentario  %></span>
                             </li>
 
