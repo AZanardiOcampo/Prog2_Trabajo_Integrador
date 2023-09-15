@@ -285,6 +285,8 @@ main {
 .profile {
     border-radius: 90%;
     border: 2px solid chocolate;
+    width: 100px;
+    height: 100px;
 }
 
 .user-detail .meta {

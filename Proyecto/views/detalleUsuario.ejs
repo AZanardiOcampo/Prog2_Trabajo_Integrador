@@ -10,7 +10,7 @@
     <main>
         <div class="user-detail container">
             <section class="top main-content">
-                <img class="profile" src="https://via.placeholder.com/100x100" alt="">
+                <img class="profile" src="<%= datos.fotoPerfil %>" alt="">
                 <div class="info-usuario">
                     <p><%= datos.nombreUsuario %></p> 
                     <a class="follow" href="">seguir</a>
@@ -20,17 +20,17 @@
                         <li>300 seguidos</li>
                     </ul>
                 </div>
-                <% for( let j = 0; j < datos.length; j++ ) { %>
             </section>
             <section class="bottom">
                 <article class="post">
+                <% for( let j = 0; j < datos.length; j++ ) { %>
                     <a href="/posteos/detalle/<%= datos[j].id %>">
                         <img src="<%= datos[j].url %>" alt="">
                     </a>
+                    <% } %>
                 </article>
             </section>
         </div>
-        <% } %>
     </main>
 
 <%- include('./partials/footer') %>
