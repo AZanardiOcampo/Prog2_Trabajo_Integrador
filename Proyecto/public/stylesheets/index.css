@@ -8,11 +8,11 @@ ul, ol {
 }
 li{
     list-style-type: none;
-    color: black;
 }
 a {
     text-decoration: none;
-    color: rgba(rgb(75, 14, 84), 0.8);
+    color: rebeccapurple;
+    font-weight: bold;
 }
 html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -38,7 +38,7 @@ header {
     align-items: center;
     padding: 10px 10px;
     border-bottom: 1px solid #ddd;
-    color: rgba(rgb(75, 14, 84), 0.8);
+    color: rebeccapurple;
 }
 
 .logo{
@@ -47,19 +47,22 @@ header {
 .search {
     background-color: #EBEDF0;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 18px;
     width: 300px;
+    border: 2px solid rebeccapurple;
+    font-weight: bold;
 }
 .search input {
     border: none;
     background-color: transparent;
     height: 26px;
-    color: #888;
+    color: rebeccapurple;
+    font-weight: bold;
     width: 90%;
     outline-width: 0;
 }
 .search i {
-    color: #888;
+    color: rebeccapurple;
 }
 .menu{
     display: flex;
@@ -67,7 +70,7 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    color: rgba(rgb(75, 14, 84), 0.8);
+    color: rebeccapurple;
 }
 .menu li {
     margin: 0 8px;
@@ -90,6 +93,7 @@ main {
     align-items: center;
     padding: 100px 0;
     min-height: 600px;
+    
 }
 
 .main-content {
@@ -97,6 +101,11 @@ main {
 }
 
 /* post */
+.pieDeFoto{
+    color: rebeccapurple;
+    font-weight: bold;
+}
+
 .post{
     background-color: #fff;
     border: 1px solid #ddd;
@@ -110,7 +119,7 @@ main {
 .info-usuario,
 .post-reacciones,
 .post-comentarios {
-    padding: 10px 15px
+    padding: 10px 15px;
 }
 .info-usuario {
     display: flex;
@@ -134,7 +143,7 @@ main {
 .post-reacciones li{
     margin-right: 10px;
     font-size: 25px;
-    color: rgba(rgb(75, 14, 84), 0.8);
+    color: rebeccapurple;
 }
 .post-comentarios li {
     margin-bottom: 10px;
@@ -142,6 +151,7 @@ main {
 .post-comentarios li a {
     margin-right: 10px;
     color: #000;
+    font-weight: bold;
 }
 .post-comentarios h4 {
     margin: 0 0 10px 0;
@@ -156,6 +166,9 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    font-size: 20px;
+    color: rebeccapurple;
+    font-weight: bold;
 }
 .main-footer {
     position: fixed;
@@ -168,6 +181,8 @@ main {
 }
 .social li {
     margin-right: 20px;
+    margin-left: 20px;
+    font-weight: bold;
 }
 .team li {
     margin-left: 20px;
@@ -210,7 +225,8 @@ main {
 }
 .comment .text {
     font-size: 12px;
-    color: #777;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
 }
 .comment .content {
     line-height: 1;
@@ -228,7 +244,7 @@ main {
     height: 25px;
     border: none;
     outline-width: 0;
-    color:#777
+    color: rebeccapurple;
 }
 .comment-form button {
     padding: 5px 0;
@@ -254,16 +270,16 @@ main {
 }
 .user-detail .bottom{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 40px;
-    width: 70%;
+    width: 100%;
+    justify-content: center;
 }
 .user-detail .post{
-    width: 200px;
-    padding: 5px 5px 20px 5px;
-    border-radius: 0;
+    width: 230px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10;
 }
 .user-detail .post img{
     width: 100%;
@@ -303,6 +319,8 @@ main {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    color: white;
+    font-weight: bold;
 }
 
 .fotoPerfil{
@@ -326,4 +344,14 @@ label{
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+#nombre, #email, #contrasenia,  #URL, #pieImg{
+    border-radius: 5px;
+}
+
+.botonR{
+    color: rebeccapurple;
+    font-weight: bold;
+    border-radius: 1px;
 }
