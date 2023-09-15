@@ -82,6 +82,8 @@ main {
     background: #ff00cc;  
     background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
     background: linear-gradient(to right, #333399, #ff00cc);
+    background-repeat: no-repeat;
+    background-size: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -306,4 +308,22 @@ main {
 .fotoPerfil{
     width: 40px;
     height: 40px;
+}
+
+label{
+    color: white;
+}
+
+.h1-register{
+    color: white;
+}
+
+.form-register{
+    width: 100%;
+}
+
+.article-register{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
