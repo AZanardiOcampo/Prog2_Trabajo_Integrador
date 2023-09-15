@@ -12,7 +12,7 @@ const usuariosController = {
             usuarioEncontrado.push(data.posteos[i])
            }
         }
-
+        console.log(usuarioEncontrado);
         res.render("detalleUsuario", {datos: usuarioEncontrado})
     },
     miPerfil: function(req, res){

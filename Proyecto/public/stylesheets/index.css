@@ -274,7 +274,7 @@ main {
     padding-bottom: 20px;
     margin-bottom: 30px;
     border-bottom: 1px solid #ddd;
-    max-width: 500px;
+    max-width: 100%;
 }
 .follow {
     padding: 3px 20px 7px;
@@ -290,7 +290,7 @@ main {
 }
 .profile {
     border-radius: 90%;
-    border: 2px solid chocolate;
+    border: 3px solid chocolate;
     width: 100px;
     height: 100px;
 }
