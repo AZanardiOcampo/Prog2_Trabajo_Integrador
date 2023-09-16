@@ -17,16 +17,16 @@ const usuariosController = {
     },
     miPerfil: function(req, res){
         
-        let id = req.params.usuarioId
+        let usuario = 'entrenadorhabil'
         let usuarioEncontrado = []
  
-         for (let i = 0; i < data.posteos; i++) {
-            if(id == data.posteos[i].usuarioId){
+         for (let i = 0; i < data.posteos.length; i++) {
+            if(usuario == data.posteos[i].nombreUsuario){
              usuarioEncontrado.push(data.posteos[i])
             }
          }
  
-         res.render("miPerfil", {datos: usuarioEncontrado})
+        res.render("miPerfil", {datos: usuarioEncontrado})
      },
      editar: function(req,res){
          res.render('editarPerfil')

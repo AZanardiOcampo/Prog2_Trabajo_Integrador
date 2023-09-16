@@ -5,14 +5,14 @@
 
 <body>
     
-<%- include('./partials/header') %>
+<%- include('./partials/headerLogueado') %>
 
     <main>
         <div class="user-detail container">
             <section class="top main-content">
-                <img class="profile" src="https://via.placeholder.com/100x100" alt="">
+                <img class="profile" src="<%= datos[0].fotoPerfil %>" alt="">
                 <div class="info-usuario">
-                    <p><%= datos.nombreUsuario %></p> 
+                    <h1 class="h1-register"><%= datos[0].nombreUsuario %></h1> 
                     <a class="follow" href="/editarPerfil"><i class="fa-solid fa-user-gear"></i></a>
                     <ul class="meta">
                         <li>100 post</li>
@@ -20,17 +20,18 @@
                         <li>300 seguidos</li>
                     </ul>
                 </div>
-                <% for( let j = 0; j < datos.length; j++ ) { %>
+                
             </section>
             <section class="bottom">
                 <article class="post">
+                <% for( let j = 0; j < datos.length; j++ ) { %>
                     <a href="/detallePost">
                         <img src="<%= datos[j].url %>" alt="">
                     </a>
+                <% } %>
                 </article>
             </section>
         </div>
-        <% } %>
     </main>
 
     <%- include('./partials/footer') %>

@@ -93,7 +93,6 @@ main {
     align-items: center;
     padding: 100px 0;
     min-height: 600px;
-    
 }
 
 .main-content {
@@ -204,7 +203,14 @@ main {
 }
 .post-detail .right {
     width: 34%;
+    color: white;
 }
+
+.h4-detalle{
+    color: white;
+    font-weight: bold;
+}
+
 .comments div {
     margin-top: 20px;
     padding-top: 10px;
@@ -346,7 +352,7 @@ label{
     flex-direction: column;
 }
 
-#nombre, #email, #contrasenia,  #URL, #pieImg{
+#nombre, #email, #contrasenia,  #URL, #pieImg, #foto{
     border-radius: 5px;
 }
 

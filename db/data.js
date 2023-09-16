@@ -157,7 +157,7 @@ const data = {
         usuarioId: 4,
         nombreUsuario: "campodejuego",
         fotoPerfil: "https://i.pinimg.com/originals/df/4f/9f/df4f9f97d31c38cdd05bdbc6f5c6df0b.jpg",
-        url: "https://i.pinimg.com/originals/6e/9a/61/6e9a612e1f3ea6344bc952e570e79ad8.jpg",
+        url: "https://i.pinimg.com/originals/af/83/63/af8363409c6a7e8fff391af1578bbe25.jpg",
         pieImg: "Baila Dibu Baila",
         comentarios: [
             { usuario: "goleroexperto", usuarioId: 1, comentario: "SIIIIII", fotoPerfil: "https://i.pinimg.com/originals/24/1b/8a/241b8a8ac4d409581bf664f3312f64f5.jpg" },

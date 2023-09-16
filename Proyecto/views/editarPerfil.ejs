@@ -4,21 +4,21 @@
 <%- include('./partials/head') %>
 
 <body>
-    <%- include('./partials/header') %>
+    <%- include('./partials/headerLogueado') %>
 
     <main>
         <section class="center main-content">
-        <h1>Editar perfil</h1>
+        <h1 class="h1-register">Editar perfil</h1>
         <form action= "/login" method="get">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombreUsuario" id="nombreUsuario">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
-            <label for="contrasenia">Contraseña</label>
-            <input type="text" name="contrasenia" id="clave">
-            <label for="foto">Foto de perfil</label>
-            <input id="foto" type="text" name="fotoPerfil" value="">
-            <button type="submit">Enviar</button>
+            <p><label for="nombre">Nombre</label></p>
+            <p><input type="text" name="nombreUsuario" id="nombre"></p>
+            <p><label for="email">Email</label></p>
+            <p><input type="email" name="email" id="email"></p>
+            <p><label for="contrasenia">Contraseña</label></p>
+            <p><input type="text" name="contrasenia" id="contrasenia"></p>
+            <p><label for="foto">Foto de perfil</label></p>
+            <p><input id="foto" type="text" name="fotoPerfil" value=""></p>
+            <button class="botonR" type="submit">Enviar</button>
         </form>
         </section>
     </main>
