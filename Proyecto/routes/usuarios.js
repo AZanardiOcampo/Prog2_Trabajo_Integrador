@@ -3,7 +3,11 @@ const router = express.Router();
 const controller = require("../controllers/usuarioController");
 
 router.get('/detalle/:usuarioId', controller.detalle);
+
 router.get('/miperfil', controller.miPerfil);
-router.get('/editar', controller.editar)
+
+router.get('/editar', controller.editar);
+
+router.get('/buscar/:username',controller.busqueda)
 
 module.exports = router;

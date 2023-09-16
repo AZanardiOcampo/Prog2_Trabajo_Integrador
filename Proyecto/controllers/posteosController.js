@@ -15,9 +15,6 @@ detallePost: function(req,res){
         }
 
     res.render('detallePost',{posteo: posteoEncontrado})
-},
-searchResults: function(req,res){
-
 }
 
 };

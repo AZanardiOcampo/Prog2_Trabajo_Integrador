@@ -6,6 +6,5 @@ router.get('/agregar',controller.agregarPost)
 
 router.get('/detalle/:id',controller.detallePost)
 
-router.get('/buscar',controller.searchResults)
 
 module.exports = router;

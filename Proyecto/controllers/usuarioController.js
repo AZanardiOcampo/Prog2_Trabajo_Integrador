@@ -30,7 +30,20 @@ const usuariosController = {
      },
      editar: function(req,res){
          res.render('editarPerfil')
-     }
+     },
+     busqueda: function (req, res) {
+      let nombre = req.params.username; 
+      let usuarioEncontrado = []
+
+      for (let i = 0; i < data.posteos.length; i++) {
+         if(nombre == data.posteos[i].nombreUsuario){
+          usuarioEncontrado.push(data.posteos[i])
+         }
+      }
+
+      res.render('resultadoBusqueda', {datos: usuarioEncontrado}); /* No pudimos hacer funcionar el boton de la lupa, pero si ponen el nombre de usuario en la url, te muestra el perfil del usuario */
+  }
+  
 }
 
 module.exports = usuariosController 
