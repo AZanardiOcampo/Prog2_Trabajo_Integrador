@@ -16,7 +16,13 @@ detallePost: function(req,res){
         }
 
     res.render('detallePost',{posteo: posteoEncontrado})
+},
+
+nuevoPost: function(req, res){
+    let posteo = {url: req.body.URL, pieImg: req.body.pieImg}
 }
+
+/* terminar cuando terminemos lo de las cookies */
 
 };
 module.exports = posteosController

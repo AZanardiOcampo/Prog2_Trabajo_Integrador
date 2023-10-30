@@ -8,6 +8,8 @@ router.get('/miperfil', controller.miPerfil);
 
 router.get('/editar', controller.editar);
 
+router.post('/editar', controller.editarPost)
+
 router.get('/buscar/:username',controller.busqueda)
 
 module.exports = router;

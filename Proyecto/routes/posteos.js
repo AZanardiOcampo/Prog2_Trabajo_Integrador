@@ -6,5 +6,6 @@ router.get('/agregar',controller.agregarPost)
 
 router.get('/detalle/:id',controller.detallePost)
 
+router.post('/agregar',controller.nuevoPost)
 
 module.exports = router;

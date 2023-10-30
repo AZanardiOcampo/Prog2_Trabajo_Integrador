@@ -18,7 +18,7 @@ const usuariosController = {
     },
     miPerfil: function(req, res){
         
-        let usuario = 'entrenadorhabil'
+        let usuario = "nombre"
         let usuarioEncontrado = []
  
          for (let i = 0; i < data.posteos.length; i++) {
@@ -29,9 +29,26 @@ const usuariosController = {
  
         res.render("miPerfil", {datos: usuarioEncontrado})
      },
-     editar: function(req,res){
+     editar: function(req, res){
          res.render('editarPerfil')
      },
+     
+     editarPost: function(req, res)
+     {
+         let info = {
+            nombreUsuario: req.body.nombreUsuario, 
+            email: req.body.email,
+            contrasenia: req.body.contrasenia,
+            fotoPerfil: req.body.fotoPerfil
+         }
+
+        info.nombreUsuario = res.locals.nombreUsuario
+         info.email = res.locals.email
+         info.contrasenia = res.locals.contrasenia
+         info.fotoPerfil = res.locals.fotoPerfil
+
+     },
+   
      busqueda: function (req, res) {
       let nombre = req.params.username; 
       let usuarioEncontrado = []
