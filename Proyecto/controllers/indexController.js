@@ -1,11 +1,15 @@
+const session = require('express-session');
 const data = require('../../db/data');
 const db = require('../database/models')
 const bcrypt = require('bcryptjs');
 
 const indexController = {
     index: function (req, res) {
+
+        return res.send(req.session.user)
+        
         /* INDEX ES EL NOMBRE DE LA VISTA, DATOS ES EL NOMBRE PARA EL EJS Y POSTEOS ES LA VARIABLE CREADA */
-        return res.render('index', {datos: data.posteos});
+       return res.render('index', {datos: data.posteos}); 
     },
     
     registro: function (req, res) {
@@ -34,24 +38,24 @@ const indexController = {
 
     loginPost: (req, res) => {
         let emailBuscado = req.body.email;
-        let pass = req.body.password;               // clave del formulario
+        let pass = req.body.contrasenia;               // clave del formulario
         let remenberme=req.body.remenberme;
         let criterio = {
             where: [{email: emailBuscado}]
         };
        
-        db.User.findOne(criterio)
+        db.Usuario.findOne(criterio)
         .then((result) => {
 
             if (result != null) {
-                let check = bcrypt.compareSync(pass, result.password)
+                let check = bcrypt.compareSync(pass, result.clave)
                 
                 if (check) {
                     req.session.user=result.dataValues;
                     if (remenberme!=undefined) {
                         res.cookie('userId', result.id,{maxAge:1000 * 60 * 5})
                     }
-                    return res.redirect("/movies")
+                    return res.redirect("/")
                 } else {
                     return res.render("login")
                 }
@@ -64,7 +68,7 @@ const indexController = {
             return console.log(err);
         });
 
-        return res.redirect("/index");
+        return res.redirect("/");
     }
 }
 

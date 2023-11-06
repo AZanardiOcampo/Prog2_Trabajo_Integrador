@@ -4,7 +4,8 @@ use proyecto;
 
 create table usuario (
       id                        int           unsigned primary key auto_increment,
-	 email                   varchar(50)           not null,
+	email                   varchar(50)           not null unique,
+      nombreUsuario           varchar(50)         not null,
      fotoPerfil              varchar(200),          
      clave                   varchar(200)          not null,
      fechaNac                   date              not null,
@@ -37,12 +38,12 @@ create table comentarios (
     foreign key (posteoId)  references posteo(id)
 );
 
-insert into usuario (id, email, fotoPerfil, clave, fechaNac, dni) values
-(default, "goleroexperto@gmail.com", null, "golero123", "1998-09-24", 98765432),
-(default, "futbolamante@gmail.com", null, "amantefulbo", "2004-03-05", 36765432),
-(default, "jugadorestrella@gmail.com", null, "star", "1987-07-31", 47955432),
-(default, "campodejuego@gmail.com", null, "campo", "2012-01-06", 47928032),
-(default, "entrenadorhabil@gmail.com", null, "dt", "1987-06-24", 55674032);
+insert into usuario (id, nombreUsuario, email, fotoPerfil, clave, fechaNac, dni) values
+(default, "goleroexperto", "goleroexperto@gmail.com", null, "golero123", "1998-09-24", 98765432),
+(default, "futbolamante", "futbolamante@gmail.com", null, "amantefulbo", "2004-03-05", 36765432),
+(default, "jugadorestrella", "jugadorestrella@gmail.com", null, "star", "1987-07-31", 47955432),
+(default, "campodejuego", "campodejuego@gmail.com", null, "campo", "2012-01-06", 47928032),
+(default, "entrenadorhabil", "entrenadorhabil@gmail.com", null, "dt", "1987-06-24", 55674032);
 
 insert into posteo(id, usuarioId, url, pieImg) values
 (default, 1, "https://i.pinimg.com/736x/49/19/a8/4919a8dc44184ea27159ad8e1e6dde41.jpg" , "Parado no bailão"),
