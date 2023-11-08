@@ -3,30 +3,42 @@
 
 <%- include('./partials/head') %>
 
-<body>
+    <body>
 
-<%- include('./partials/header') %>
+        <%- include('./partials/header') %>
 
-    <main>
-        <section class="center main-content">
-        <h1 class="h1-register">Registrate</h1>
-            
-            <form class="form-register" action= "/login" method="post">
-                <p><label for="nombre">Nombre</label></p>
-                <p><input type="nombre" name="nombre" id="nombre"></p>
-                <p><label for="email">Email</label></p>
-                <p><input type="email" name="email" id="email" required></p>
-                <p><label for="contrasenia">Contraseña</label></p>
-                <p><input type="contrasenia" name="contrasenia" id="contrasenia" required></p>
-                <button class="botonR" type="submit">Registrarse</button>
-                <p class="h1-register">¿Ya tenes una cuenta? - <a class="h1-register" href="/login">Inicia sesion</a></p>
-            </form>
-        
-        </section>
-    </main>
+            <main>
+                <section class="center main-content">
+                    <h1 class="h1-register">Registrate</h1>
 
-<%- include('./partials/footer') %>
+                    <form class="form-register" action="/registro" method="post">
+                        <p><label for="nombre">Nombre</label></p>
+                        <p><input type="text" name="nombre" id="nombre"></p>
+                        <p><label for="dni">Dni</label></p>
+                        <p><input type="number" name="dni" id="dni"></p>
+                        <p><label for="fotoPerfil">Foto de perfil (URL)</label></p>
+                        <p><input type="text" name="fotoPerfil" id="fotoPerfil"></p>
+                        <p><label for="fechaNac">Fecha de nacimiento</label></p>
+                        <p><input type="date" name="fechaNac" id="fechaNac"></p>
+                        <p><label for="email">Email</label></p>
+                        <p><input type="email" name="email" id="email" required></p>
+                        <p><label for="contrasenia">Contraseña</label></p>
+                        <p><input type="password" name="contrasenia" id="contrasenia" required></p>
+                        <% if(locals.errors){ %>
+                            <p class=“mensajeError”>
+                                <%= errors.message %>
+                            </p>
+                            <% } %>
+                                <button class="botonR" type="submit">Registrarse</button>
+                                <p class="h1-register">¿Ya tenes una cuenta? - <a class="h1-register"
+                                        href="/login">Inicia sesion</a></p>
+                    </form>
 
-</body>
+                </section>
+            </main>
+
+            <%- include('./partials/footer') %>
+
+    </body>
 
 </html>

@@ -24,11 +24,11 @@
                     
                     
                     
-                    <img src="<%= datos[i].fotoPerfil %>" alt="" class="fotoPerfil">
+                    <img src="<%= datos[i].posteosAUsuarios.fotoPerfil %>" alt="" class="fotoPerfil">
 
                     
                     <h4>
-                        <a href="usuarios/detalle/<%= datos[i].usuarioId %>"><%= datos[i].nombreUsuario %></a>
+                        <a href="usuarios/detalle/<%= datos[i].usuarioId %>"><%= datos[i].posteosAUsuarios.nombreUsuario %></a>
                     </h4>
                 </div>
                 <div class="post-body">
@@ -47,15 +47,15 @@
 
 
                 <div class="post-comentarios">
-                    <p><h3 class="pieDeFoto"><%= datos[i].nombreUsuario %>: <%= datos[i].pieImg %></h3></p>
+                    <p><h3 class="pieDeFoto"><%= datos[i].posteosAUsuarios.nombreUsuario %>: <%= datos[i].pieImg %></h3></p>
                     <h4>Comentarios</h4>
                     <ul>
 
-                        <% for( let j = 0; j < datos[i].comentarios.length; j++ ) { %>
+                        <% for( let j = 0; j < datos[i].posteosAComentarios.length; j++ ) { %>
                           
                             <li>
-                                <a href="/usuarios/detalle/<%= datos[i].comentarios[j].usuarioId %>"><%= datos[i].comentarios[j].usuario %> :</a>
-                                <span><%= datos[i].comentarios[j].comentario  %></span>
+                                <a href="/usuarios/detalle/<%= datos[i].posteosAComentarios[j].usuarioId %>"><%= datos[i].posteosAComentarios[j].comentarioAUsuario.nombreUsuario %> :</a>
+                                <span><%= datos[i].posteosAComentarios[j].comentario  %></span>
                             </li>
 
                         <% } %>

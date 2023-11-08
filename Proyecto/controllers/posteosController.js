@@ -7,15 +7,16 @@ agregarPost: function(req,res){
 },
 detallePost: function(req,res){
     let id = req.params.id;
-    let posteoEncontrado = null;
-        
-    for (let i = 0; i < data.posteos.length; i++) {
-        if(data.posteos[i].id == id){
-        posteoEncontrado = data.posteos[i]
-             }
-        }
 
-    res.render('detallePost',{posteo: posteoEncontrado})
+    db.Posteo.findByPk(id,{
+        include:[{all:true, nested: true}]
+    })
+    .then(function(result){
+        return res.render('detallePost', {posteo: result})
+    })
+    .catch(function(error){
+        return res.send(error)
+    }) 
 },
 
 nuevoPost: function(req, res){

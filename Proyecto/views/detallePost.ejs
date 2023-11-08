@@ -10,8 +10,8 @@
         <div class="post-detail container">
             <section class="center main-content post">
                 <div class="info-usuario">
-                    <img src="<%= posteo.fotoPerfil %>" alt="" class="fotoPerfil">
-                    <p><a href="/usuarios/detalle/<%= posteo.usuarioId %>"><%= posteo.nombreUsuario %></a></p>
+                    <img src="<%= posteo.posteosAUsuarios.fotoPerfil %>" alt="" class="fotoPerfil">
+                    <p><a href="/usuarios/detalle/<%= posteo.usuarioId %>"><%= posteo.posteosAUsuarios.nombreUsuario %></a></p>
                 </div>
                 <img class="photo" src=<%= posteo.url %> alt="">
             </section>
@@ -25,12 +25,12 @@
                         <button type="submit">Comentar</button>
                     </form>
                     <div>
-               <% for( let j = 0; j < posteo.comentarios.length; j++ ) { %>        
+               <% for( let j = 0; j < posteo.posteosAComentarios.length; j++ ) { %>        
                         <article class="comment">
-                                <img src="<%= posteo.comentarios[j].fotoPerfil %>" alt="" class="fotoPerfil">
+                                <img src="<%= posteo.posteosAComentarios[j].comentarioAUsuario.fotoPerfil %>" alt="" class="fotoPerfil">
                             <ul class="content">
-                                <a class="user" href="/usuarios/detalle/<%= posteo.comentarios[j].usuarioId %>"><%= posteo.comentarios[j].usuario %></a>
-                                <span class="text">: <%= posteo.comentarios[j].comentario %></span>
+                                <a class="user" href="/usuarios/detalle/<%= posteo.posteosAComentarios[j].usuarioId %>"><%= posteo.posteosAComentarios[j].comentarioAUsuario.nombreUsuario %></a>
+                                <span class="text">: <%= posteo.posteosAComentarios[j].comentario %></span>
                             </ul>
                         </article>
                         <% } %>
