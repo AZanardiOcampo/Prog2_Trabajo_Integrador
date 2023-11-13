@@ -90,8 +90,9 @@ const indexController = {
                 
                 if (check) {
                     req.session.user=result.dataValues;
+                    
                     if (remenberme!=undefined) {
-                        res.cookie('userId', result.id,{maxAge:1000 * 60 * 5})
+                        res.cookie('userId', result.id,{maxAge:1000 * 60 * 180})
                     }
                     return res.redirect("/")
                 } else {

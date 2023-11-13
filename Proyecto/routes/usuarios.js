@@ -12,4 +12,6 @@ router.post('/editar', controller.editarPost)
 
 router.get('/buscar/:username',controller.busqueda)
 
+router.get("/logout", controller.logout)
+
 module.exports = router;
