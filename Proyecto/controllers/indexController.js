@@ -106,7 +106,6 @@ const indexController = {
             return console.log(err);
         });
 
-        return res.redirect("/");
     }
 }
 
