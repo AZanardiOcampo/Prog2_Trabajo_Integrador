@@ -24,6 +24,7 @@ const usuariosController = {
       let usuario = req.session.user;
       usuarios.findByPk(usuario.id, {include:[{all:true, nested: true}], order: [["createdAt","DESC"]]})
       .then(function(result) {
+         //return res.send(result)
          res.render("miPerfil", {datos: result})   
       })
       .catch(error => console.log(error))
