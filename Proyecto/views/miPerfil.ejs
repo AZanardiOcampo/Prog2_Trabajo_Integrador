@@ -13,7 +13,7 @@
                 <img class="profile" src="<%= datos.fotoPerfil %>" alt="">
                 <div class="info-usuario">
                     <h1 class="h1-register"><%= datos.nombreUsuario %></h1> 
-                    <a class="follow" href="/editarPerfil"><i class="fa-solid fa-user-gear"></i></a>
+                    <a class="follow" href="/usuarios/editarPerfil"><i class="fa-solid fa-user-gear"></i></a>
                     <ul class="meta">
                         <li>100 post</li>
                         <li>200 seguidores</li>
@@ -32,7 +32,7 @@
                 
                 <div class="post-comentarios">
                     <p><h3 class="pieDeFoto"><%= datos.usuariosAPosteos[i].nombreUsuario %>: <%= datos.usuariosAPosteos[i].pieImg %></h3></p>
-                    <h4>Comentarios</h4>
+                    <h4 class="h4Comentarios">Comentarios</h4>
                     <ul>
 
                         <% for( let j = 0; j < datos.usuariosAPosteos[i].posteosAComentarios.length; j++ ) { %>

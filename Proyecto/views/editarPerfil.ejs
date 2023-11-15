@@ -9,15 +9,22 @@
     <main>
         <section class="center main-content">
         <h1 class="h1-register">Editar perfil</h1>
-        <form action= "/login" method="get">
-            <p><label for="nombre">Nombre de usuario</label></p>
-            <p><input type="text" name="nombreUsuario" id="nombre"></p>
-            <p><label for="email">Email</label></p>
+        <form action= "/usuarios/miperfil" method="POST">
+            <p><label for="nombre">Nuevo Nombre de Usuario</label></p>
+            <p><input type="text" name="nombreUsuario" id="nombre" value="<%= usuario.nombreUsuario %>"></p>
+            
+            <p><label for="email">Nuevo Email</label></p>
             <p><input type="email" name="email" id="email"></p>
-            <p><label for="contrasenia">Contraseña</label></p>
-            <p><input type="text" name="contrasenia" id="contrasenia"></p>
-            <p><label for="foto">Foto de perfil</label></p>
+           
+            <p><label for="contrasenia">Nueva Contraseña</label></p>
+            <p><input type="password" name="contrasenia" id="contrasenia"></p>
+            
+            <p><label for="fechaNac">Fecha de nacimiento</label></p>
+            <p><input type="date" name="fechaNac" id="fechaNac"></p>
+            
+            <p><label for="foto">Nueva Foto de perfil</label></p>
             <p><input id="foto" type="text" name="fotoPerfil" value=""></p>
+            
             <button class="botonR" type="submit">Enviar</button>
         </form>
         </section>

@@ -6,9 +6,9 @@ router.get('/detalle/:usuarioId', controller.detalle);
 
 router.get('/miperfil', controller.miPerfil);
 
-router.get('/editar', controller.editar);
+router.get('/editarPerfil', controller.editar);
 
-router.post('/editar', controller.editarPost)
+router.post('/editarPerfil', controller.editarPost)
 
 router.get('/buscar/:username',controller.busqueda)
 

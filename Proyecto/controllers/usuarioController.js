@@ -35,20 +35,34 @@ const usuariosController = {
      editar: function(req, res){
          res.render('editarPerfil')
      },
-     editarPost: function(req, res)
-     {
-         let info = {
+     editarPost: function(req, res){
+         let infoNueva = {
             nombreUsuario: req.body.nombreUsuario, 
             email: req.body.email,
-            contrasenia: req.body.contrasenia,
+            fechaNac: req.body.fechaNac,
             fotoPerfil: req.body.fotoPerfil
          }
 
-        info.nombreUsuario = res.locals.nombreUsuario
+         if (req.body.contrasenia != "") {
+            infoNueva.clave = bcrypt.hashSync(req.body.contrasenia)
+         }
+
+         usuario.update(infoNueva,
+            { where: { usuarioId: req.session.user.usuarioId } }
+        )
+            .then(function (result) {
+                console.log(infoNueva);
+                req.session.user = result
+                return res.redirect('/')
+            })
+            .catch(function (error) {
+                return res.send(error)
+            })
+
+        /*  info.nombreUsuario = res.locals.nombreUsuario
          info.email = res.locals.email
          info.contrasenia = res.locals.contrasenia
-         info.fotoPerfil = res.locals.fotoPerfil
-
+         info.fotoPerfil = res.locals.fotoPerfil */
      },
    
      busqueda: function (req, res) {
