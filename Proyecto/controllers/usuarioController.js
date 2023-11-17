@@ -9,15 +9,22 @@ const usuariosController = {
     detalle: function(req, res){
         
        let id = req.params.usuarioId
-       let usuarioEncontrado = []
+     //  let usuarioEncontrado = []
 
-        for (let i = 0; i < data.posteos.length; i++) {
+       usuarios.findByPk(id, {include:[{all:true, nested: true}], order: [["createdAt","DESC"]]})
+       .then(function(result) {
+          console.log(result);
+          res.render("detalleUsuario", {datos: result})   
+       })
+       .catch(error => console.log(error))
+
+       /* for (let i = 0; i < data.posteos.length; i++) {
            if(id == data.posteos[i].usuarioId){
             usuarioEncontrado.push(data.posteos[i])
            }
         }
         console.log(usuarioEncontrado);
-        res.render("detalleUsuario", {datos: usuarioEncontrado})
+        res.render("detalleUsuario", {datos: usuarioEncontrado}) */
     },
     miPerfil: function(req, res){
       
@@ -33,9 +40,11 @@ const usuariosController = {
       res.render("miPerfil", {datos: usuarioEncontrado}) */
      ,
      editar: function(req, res){
+        console.log(req.session.user);
          res.render('editarPerfil')
      },
      editarPost: function(req, res){
+        
          let infoNueva = {
             nombreUsuario: req.body.nombreUsuario, 
             email: req.body.email,
@@ -43,12 +52,24 @@ const usuariosController = {
             fotoPerfil: req.body.fotoPerfil
          }
 
-         if (req.body.contrasenia != "") {
-            infoNueva.clave = bcrypt.hashSync(req.body.contrasenia)
+         if (req.body.nombreUsuario == "") {
+            infoNueva.nombreUsuario = req.session.user.nombreUsuario
          }
 
-         usuario.update(infoNueva,
-            { where: { usuarioId: req.session.user.usuarioId } }
+         if (req.body.email == "") {
+            infoNueva.email = req.session.user.email
+         }
+
+         if (req.body.fechaNac == "") {
+            infoNueva.fechaNac = req.session.user.fechaNac
+         }
+
+         if (req.body.fotoPerfil == "") {
+            infoNueva.fotoPerfil = req.session.user.fotoPerfil
+         }
+
+         usuarios.update(infoNueva,
+            { where: { id: req.session.user.id } }
         )
             .then(function (result) {
                 console.log(infoNueva);
@@ -58,11 +79,6 @@ const usuariosController = {
             .catch(function (error) {
                 return res.send(error)
             })
-
-        /*  info.nombreUsuario = res.locals.nombreUsuario
-         info.email = res.locals.email
-         info.contrasenia = res.locals.contrasenia
-         info.fotoPerfil = res.locals.fotoPerfil */
      },
    
      busqueda: function (req, res) {

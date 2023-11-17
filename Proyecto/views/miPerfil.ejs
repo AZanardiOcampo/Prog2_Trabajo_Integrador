@@ -25,29 +25,11 @@
             <section class="bottom">
                 
                 <% for( let i = 0; i < datos.usuariosAPosteos.length; i++ ) { %>
-                    <article class="post"></article>
+                    <article class="post">
                     <a href="/posteos/detalle/<%= datos.usuariosAPosteos[i].id %>">
                         <img src="<%= datos.usuariosAPosteos[i].url %>" alt="">
                     </a>
-                
-                <div class="post-comentarios">
-                    <p><h3 class="pieDeFoto"><%= datos.usuariosAPosteos[i].nombreUsuario %>: <%= datos.usuariosAPosteos[i].pieImg %></h3></p>
-                    <h4 class="h4Comentarios">Comentarios</h4>
-                    <ul>
-
-                        <% for( let j = 0; j < datos.usuariosAPosteos[i].posteosAComentarios.length; j++ ) { %>
-                          
-                            <li>
-                                <a href="/usuarios/detalle/<%= datos.usuariosAPosteos[i].posteosAComentarios[j].usuarioId %>"><%= datos.usuariosAPosteos[i].posteosAComentarios[j].usuarioId %> :</a>
-                                <span><%= datos.usuariosAPosteos[i].posteosAComentarios[j].comentario  %></span>
-                            </li>
-
-                        <% } %>
-
-                        <a href="/posteos/detalle/<%= datos.usuariosAPosteos[i].id %>">Ver más...</a>
-
-                    </ul>
-                </div>
+                    </article>
                 </article>
                 <% } %>
             </section>

@@ -1,5 +1,6 @@
 const data = require('../../db/data');
 const db = require('../database/models')
+const posteos = db.Posteo;
 
 const posteosController ={
 agregarPost: function(req,res){
@@ -20,10 +21,23 @@ detallePost: function(req,res){
 },
 
 nuevoPost: function(req, res){
-    let posteo = {url: req.body.URL, pieImg: req.body.pieImg}
+    let nuevoPosteo = {
+        usuarioId: req.session.user.id,
+        url: req.body.url,
+        pieImg: req.body.pieImg
+    }
+    
+    posteos.create(nuevoPosteo)
+    .then(result=> {
+        console.log(result);
+        return res.redirect('/agregar')
+    })
+    .catch((error)=> {
+        
+        return res.send(error)
+    })
+    
 }
-
-/* terminar cuando terminemos lo de las cookies */
 
 };
 module.exports = posteosController

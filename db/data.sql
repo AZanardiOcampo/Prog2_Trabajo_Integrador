@@ -46,16 +46,17 @@ insert into usuario (id, nombreUsuario, email, fotoPerfil, clave, fechaNac, dni)
 (default, "entrenadorhabil", "entrenadorhabil@gmail.com", "https://i.pinimg.com/originals/76/3c/cc/763ccc261482595ed42c94f76ddd6764.jpg", "$2a$10$g.9br4i7FJ7jdDwI8mYu5umEfRy9NWGb2BPtodJ3RCbJtCD9Tg.BO", "1987-06-24", 55674032);
 
 insert into posteo(id, usuarioId, url, pieImg) values
-(default, 1, "https://i.pinimg.com/736x/49/19/a8/4919a8dc44184ea27159ad8e1e6dde41.jpg" , "Parado no bailão"),
 (default, 1, "https://i.pinimg.com/originals/30/56/6b/30566b73b45265855eec978630163a9e.jpg" , "El ultimo Diez"),
 (default, 2, "https://i.pinimg.com/originals/22/ad/21/22ad219ca0f55b0b46c8d79a556a56ae.jpg" , "SIUUUUUUUUUUU"),
+(default, 5, "https://i.pinimg.com/originals/98/59/a1/9859a1196280b00ef8cb5b1ae49b6268.jpg" , "Messi debuts for Inter Miami"),
+(default, 4, "https://i.pinimg.com/originals/6e/9a/61/6e9a612e1f3ea6344bc952e570e79ad8.jpg" , "Baila Dibu Baila"),
 (default, 2, "https://i.pinimg.com/originals/34/21/2e/34212e4bf0581d9f528907987ff40f58.jpg" , "Caipirinha, samba e futebol"),
 (default, 3, "https://i.pinimg.com/originals/e5/33/20/e533200b8ffded0453a22c0cde450585.jpg" , "TE AMO ARGENTINAAAA <3 <3"),
+(default, 1, "https://i.pinimg.com/736x/49/19/a8/4919a8dc44184ea27159ad8e1e6dde41.jpg" , "Parado no bailão"),
 (default, 3, "https://i.pinimg.com/originals/f4/b3/6c/f4b36cef73d4dbbaf1a765cc97ed2b00.jpg" , "Kikando e me olhandooo"),
-(default, 4, "https://i.pinimg.com/originals/ad/f1/a6/adf1a69d625058b82066e88c76665b41.jpg" , "Vinotinto de mi vida..."),
-(default, 4, "https://i.pinimg.com/originals/6e/9a/61/6e9a612e1f3ea6344bc952e570e79ad8.jpg" , "Baila Dibu Baila"),
 (default, 5, "https://i.pinimg.com/originals/e2/c1/bc/e2c1bcfe56dbf10c545d06cf2c00512f.jpg" , "+3, Vamos globo!"),
-(default, 5, "https://i.pinimg.com/originals/98/59/a1/9859a1196280b00ef8cb5b1ae49b6268.jpg" , "Messi debuts for Inter Miami");
+(default, 4, "https://i.pinimg.com/originals/ad/f1/a6/adf1a69d625058b82066e88c76665b41.jpg" , "Vinotinto de mi vida...");
+
 
 insert into comentarios (id, usuarioId, posteoId, comentario) values
 /* NEYMAR */ /* PRIMER POSTEO DE USUARIO 1 */

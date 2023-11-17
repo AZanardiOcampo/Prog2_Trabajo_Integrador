@@ -9,17 +9,14 @@
     <main>
         <section class="center main-content">
         <h1 class="h1-register">Editar perfil</h1>
-        <form action= "/usuarios/miperfil" method="POST">
+        <form action= "/usuarios/editarPerfil" method="post">
             <p><label for="nombre">Nuevo Nombre de Usuario</label></p>
-            <p><input type="text" name="nombreUsuario" id="nombre" value="<%= usuario.nombreUsuario %>"></p>
+            <p><input type="text" name="nombreUsuario" id="nombre" value=""></p>
             
             <p><label for="email">Nuevo Email</label></p>
             <p><input type="email" name="email" id="email"></p>
-           
-            <p><label for="contrasenia">Nueva Contraseña</label></p>
-            <p><input type="password" name="contrasenia" id="contrasenia"></p>
             
-            <p><label for="fechaNac">Fecha de nacimiento</label></p>
+            <p><label for="fechaNac">Cambiar Fecha de nacimiento</label></p>
             <p><input type="date" name="fechaNac" id="fechaNac"></p>
             
             <p><label for="foto">Nueva Foto de perfil</label></p>

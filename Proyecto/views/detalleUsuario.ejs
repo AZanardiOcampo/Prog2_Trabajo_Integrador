@@ -18,9 +18,9 @@
     <main>
         <div class="user-detail container">
             <section class="top main-content">
-                <img class="profile" src="<%= datos[0].fotoPerfil %>" alt="">
+                <img class="profile" src="<%= datos.fotoPerfil %>" alt="">
                 <div class="info-usuario">
-                    <h1 class="h1-register"><%= datos[0].nombreUsuario %></h1> 
+                    <h1 class="h1-register"><%= datos.nombreUsuario %></h1> 
                     <a class="follow" href="">Seguir</a>
                     <ul class="meta">
                         <li>100 post</li>
@@ -31,11 +31,11 @@
             </section>
             <section class="bottom">
                 <article class="post">
-                <% for( let j = 0; j < datos.length; j++ ) { %>
-                    <a href="/posteos/detalle/<%= datos[j].id %>">
-                        <img src="<%= datos[j].url %>" alt="">
-                    </a>
-                    <% } %>
+                    <% for( let j = 0; j < datos.usuariosAPosteos.length; j++ ) { %>
+                        <a href="/posteos/detalle/<%= datos.usuariosAPosteos[j].id %>">
+                            <img src="<%= datos.usuariosAPosteos[j].url %>" alt="">
+                        </a>
+                        <% } %>
                 </article>
             </section>
         </div>
