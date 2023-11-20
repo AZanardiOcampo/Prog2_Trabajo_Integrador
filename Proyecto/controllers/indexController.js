@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const indexController = {
     index: function (req, res) {
 
-       // return res.send(req.session.user)
+        //return res.send(req.session.user)
         
         /* INDEX ES EL NOMBRE DE LA VISTA, DATOS ES EL NOMBRE PARA EL EJS Y POSTEOS ES LA VARIABLE CREADA */
        let filtro = {

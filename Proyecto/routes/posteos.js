@@ -8,4 +8,8 @@ router.get('/detalle/:id',controller.detallePost)
 
 router.post('/agregar',controller.nuevoPost)
 
+router.post('/borrar/:id',controller.borrar)
+
+router.post('/editar/:id',controller.edit)
+
 module.exports = router;

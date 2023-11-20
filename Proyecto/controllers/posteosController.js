@@ -13,6 +13,7 @@ detallePost: function(req,res){
         include:[{all:true, nested: true}]
     })
     .then(function(result){
+        // return res.send(result)
         return res.render('detallePost', {posteo: result})
     })
     .catch(function(error){
@@ -37,6 +38,34 @@ nuevoPost: function(req, res){
         return res.send(error)
     })
     
+},
+borrar: function (req,res) {
+    let idPost = req.params.id
+        if (req.session.user != undefined) {
+            posteos.destroy({
+                where : {id : idPost}
+            })
+            .then(function(result){
+                return res.redirect('/usuarios/miperfil')
+            })
+            .catch(function(error){
+               return res.send(error)
+            })
+        } else {
+            return res.render(`/posteos/detalle/${req.params.id}`)
+        }
+},
+edit: function (req,res) {
+    let idPost= req.params.id
+        if (req.session.user != undefined) {
+            post.update({
+                url : req.body.url,
+                pieImg: req.body.pieImg
+            },
+            { where : {id :idPost}})    
+        } else {
+            return res.render(`/posteos/detalle/${req.params.id}`)
+        }
 }
 
 };

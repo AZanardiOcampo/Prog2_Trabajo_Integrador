@@ -29,9 +29,10 @@ const usuariosController = {
     miPerfil: function(req, res){
       
       let usuario = req.session.user;
+     // return res.send(usuario)
       usuarios.findByPk(usuario.id, {include:[{all:true, nested: true}], order: [["createdAt","DESC"]]})
       .then(function(result) {
-         //return res.send(result)
+        // return res.send(result)
          res.render("miPerfil", {datos: result})   
       })
       .catch(error => console.log(error))
