@@ -15,6 +15,11 @@
                 <p><input type="email" name="email" id="email" required></p>
                 <p><label for="contrasenia">Contraseña</label></p>
                 <p><input type="password" name="contrasenia" id="contrasenia" required></p>
+                <% if(locals.errors){ %>
+                    <p class=“mensajeError”>
+                        <%= errors.message %>
+                    </p>
+                    <% } %>
                 <button class="botonR" type="submit">Iniciar sesion</button>
             </form>
         </section>

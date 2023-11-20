@@ -75,6 +75,7 @@ const indexController = {
     },
 
     loginPost: (req, res) => {
+       let errors = {}; 
         let emailBuscado = req.body.email;
         let pass = req.body.contrasenia;               // clave del formulario
         let remenberme=req.body.remenberme;
@@ -100,7 +101,9 @@ const indexController = {
                 }
 
             } else {
-                return res.send("No existe el mail " + emailBuscado)
+                errors.message = "No existe el mail " + emailBuscado
+                res.locals.errors = errors
+                return res.render("login")
             }
             
         }).catch((err) => {

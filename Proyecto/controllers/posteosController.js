@@ -30,7 +30,7 @@ nuevoPost: function(req, res){
     posteos.create(nuevoPosteo)
     .then(result=> {
         console.log(result);
-        return res.redirect('/agregar')
+        return res.redirect('/posteos/agregar')
     })
     .catch((error)=> {
         
