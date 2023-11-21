@@ -10,8 +10,6 @@ router.get('/editarPerfil', controller.editar);
 
 router.post('/editarPerfil', controller.editarPost)
 
-router.get('/buscar/:username',controller.busqueda)
-
 router.get("/logout", controller.logout)
 
 module.exports = router;

@@ -29,8 +29,8 @@
             <section class="right">
                 <h4 class="h4-detalle">Comentarios</h4>
                 <section class="comments">
-                    <form action="" class="comment-form">
-                        <input type="text" class="input" placeholder="Agregar comentario">
+                    <form action="/posteos/comentar/<%= posteo.id %>" class="comment-form" method="post">
+                        <input type="text" class="input" placeholder="Agregar comentario" name="comentario">
                         <button type="submit">Comentar</button>
                     </form>
                     <div>
@@ -46,13 +46,13 @@
                     </div>
                     <% if (locals.user != undefined && locals.user.id == posteo.usuarioId){%>
                         <div class="borrarPost">
-                            <form action="/posteos/borrar/<%= posteo.id %>">
+                            <form action="/posteos/borrar/<%= posteo.id %>" method="post">
                                 <button type="submit">Borrar Post</button>
                             </form>
                         </div>
                         <div class="editarPost">
                             <h3>Editar Posteo</h3>
-                            <form action="/posteos/editar/<%= posteo.id %>">
+                            <form action="/posteos/editar/<%= posteo.id %>" method="post">
                                <p> <label for="url">Url</label> </p>
                                 <p><input type="text" name="url"></p>
                                 <p><label for="pieImg">Descripcion</label></p>

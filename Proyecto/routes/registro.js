@@ -15,6 +15,6 @@ router.get('/login',controlador.login);
 
 router.post('/login',controlador.loginPost);
 
-
+router.get('/buscar',controlador.busqueda)
 
 module.exports = router;

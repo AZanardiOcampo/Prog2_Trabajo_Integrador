@@ -2,6 +2,7 @@ const session = require('express-session');
 const data = require('../../db/data');
 const db = require('../database/models')
 const bcrypt = require('bcryptjs');
+const posteos = db.Posteo
 
 const indexController = {
     index: function (req, res) {
@@ -75,42 +76,83 @@ const indexController = {
     },
 
     loginPost: (req, res) => {
-       let errors = {}; 
+        let errors = {};
         let emailBuscado = req.body.email;
-        let pass = req.body.contrasenia;               // clave del formulario
-        let remenberme=req.body.remenberme;
+        let pass = req.body.contrasenia; // clave del formulario
+        let rememberme = req.body.rememberme;
         let criterio = {
             where: [{email: emailBuscado}]
         };
-       
+    
         db.Usuario.findOne(criterio)
-        .then((result) => {
-
-            if (result != null) {
-                let check = bcrypt.compareSync(pass, result.clave)
-                
-                if (check) {
-                    req.session.user=result.dataValues;
-                    
-                    if (remenberme!=undefined) {
-                        res.cookie('userId', result.id,{maxAge:1000 * 60 * 180})
+            .then((result) => {
+                if (result != null) {
+                    let check = bcrypt.compareSync(pass, result.clave);
+    
+                    if (check) {
+                        req.session.user = result.dataValues;
+    
+                        if (rememberme =! undefined) {
+                            res.cookie('userId', result.id, { maxAge: 1000 * 60 * 180 });
+                        } else {
+                            res.cookie('userId', result.id, { maxAge: 1000 * 60 * 2 });
+                        }
+    
+                        return res.redirect("/");
+                    } else {
+                        errors.message = "Contraseña incorrecta";
+                        res.locals.errors = errors;
+                        return res.render("login");
                     }
-                    return res.redirect("/")
                 } else {
-                    return res.render("login")
+                    errors.message = "No existe el mail " + emailBuscado;
+                    res.locals.errors = errors;
+                    return res.render("login");
                 }
+            })
+            .catch((err) => {
+                console.error(err);
+                return res.status(500).send("Error interno del servidor");
+            });
+    }, 
 
-            } else {
-                errors.message = "No existe el mail " + emailBuscado
-                res.locals.errors = errors
-                return res.render("login")
-            }
-            
-        }).catch((err) => {
-            return console.log(err);
-        });
+    busqueda: function (req, res) {
+        let busqueda = req.query.busqueda;
 
+        let errors = {}
+
+        posteos.findAll({
+            where: [{ pieImg: { [op.like]: "%" + busqueda + "%" } }],
+            include: [
+                {
+                    association: "posteosAComentarios",
+                    include: [{ association: "comentariosAUsuarios" }]
+                },
+                { association: "posteosAUsuarios" }
+            ],
+            order: [
+                ['created_at', "DESC"]
+            ]
+        })
+            .then((datosEncontrados) => {
+                
+            return res.send(datosEncontrados)
+                if (datosEncontrados.length == 0) {
+                    errors.message = "No hay resultados para su criterio de busqueda"
+                    res.locals.errors = errors
+                    return res.render("resultadoBusqueda")
+
+                }else{
+                    return res.render('resultadoBusqueda', { posteo: datosEncontrados })
+
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+                return res.send(error)
+            })
     }
+    
 }
 
 module.exports = indexController;

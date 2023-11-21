@@ -1,6 +1,7 @@
 const data = require('../../db/data');
 const db = require('../database/models')
 const posteos = db.Posteo;
+const comentarios = db.Comentario;
 
 const posteosController ={
 agregarPost: function(req,res){
@@ -41,10 +42,16 @@ nuevoPost: function(req, res){
 },
 borrar: function (req,res) {
     let idPost = req.params.id
+ 
         if (req.session.user != undefined) {
+
+            comentarios.destroy({
+                where : { posteoId : idPost}
+            })
+                .then(function(result){
             posteos.destroy({
                 where : {id : idPost}
-            })
+            })})
             .then(function(result){
                 return res.redirect('/usuarios/miperfil')
             })
@@ -58,14 +65,36 @@ borrar: function (req,res) {
 edit: function (req,res) {
     let idPost= req.params.id
         if (req.session.user != undefined) {
-            post.update({
+            posteos.update({
                 url : req.body.url,
                 pieImg: req.body.pieImg
             },
             { where : {id :idPost}})    
+            return res.redirect('/usuarios/miperfil')
         } else {
             return res.render(`/posteos/detalle/${req.params.id}`)
         }
+},
+
+agregarComment: function (req, res) {
+    if(req.session.user != undefined){
+        
+        let comentario = {
+            comentario : req.body.comentario,
+            posteoId: req.params.id,
+            usuarioId: req.session.user.id
+        }
+        
+        comentarios.create(comentario)
+        .then(function(result) {
+            return res.redirect( `/posteos/detalle/${req.params.id}`)
+        })
+        .catch(function(error) {
+            return res.send(error)
+        })
+    }else {
+        return res.render("login")
+    }
 }
 
 };

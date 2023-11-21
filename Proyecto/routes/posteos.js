@@ -12,4 +12,6 @@ router.post('/borrar/:id',controller.borrar)
 
 router.post('/editar/:id',controller.edit)
 
+router.post('/comentar/:id', controller.agregarComment)
+
 module.exports = router;
