@@ -10,6 +10,8 @@ router.post('/agregar',controller.nuevoPost)
 
 router.post('/borrar/:id',controller.borrar)
 
+router.post('/editarpost/:id',controller.editPost)
+
 router.post('/editar/:id',controller.edit)
 
 router.post('/comentar/:id', controller.agregarComment)

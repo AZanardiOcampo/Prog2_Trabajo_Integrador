@@ -1,0 +1,5 @@
+1 - Fotos de perfil 0,5pts
+
+2 - Recordarme 1pts
+
+3 - Validaciones interactivas 0,5pts

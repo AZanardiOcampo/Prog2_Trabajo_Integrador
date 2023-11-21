@@ -25,7 +25,7 @@
                         <p><label for="contrasenia">Contraseña</label></p>
                         <p><input type="password" name="contrasenia" id="contrasenia" required></p>
                         <% if(locals.errors){ %>
-                            <p class=“mensajeError”>
+                            <p style="color: red;" class=“mensajeError”>
                                 <%= errors.message %>
                             </p>
                             <% } %>

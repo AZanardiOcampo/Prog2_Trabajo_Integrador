@@ -3,6 +3,7 @@ const data = require('../../db/data');
 const db = require('../database/models')
 const bcrypt = require('bcryptjs');
 const posteos = db.Posteo
+const op = db.Sequelize.Op
 
 const indexController = {
     index: function (req, res) {
@@ -92,13 +93,12 @@ const indexController = {
                     if (check) {
                         req.session.user = result.dataValues;
     
-                        if (rememberme =! undefined) {
-                            res.cookie('userId', result.id, { maxAge: 1000 * 60 * 180 });
-                        } else {
-                            res.cookie('userId', result.id, { maxAge: 1000 * 60 * 2 });
-                        }
-    
-                        return res.redirect("/");
+                        if (rememberme != undefined) {
+                            res.cookie('userId', result.dataValues.id, { maxAge: 1000 * 60 * 180 });
+                        } 
+                        
+                        return res.redirect("/usuarios/miperfil");
+
                     } else {
                         errors.message = "Contraseña incorrecta";
                         res.locals.errors = errors;
@@ -118,33 +118,22 @@ const indexController = {
 
     busqueda: function (req, res) {
         let busqueda = req.query.busqueda;
-
+        
         let errors = {}
 
         posteos.findAll({
             where: [{ pieImg: { [op.like]: "%" + busqueda + "%" } }],
-            include: [
-                {
-                    association: "posteosAComentarios",
-                    include: [{ association: "comentariosAUsuarios" }]
-                },
-                { association: "posteosAUsuarios" }
-            ],
-            order: [
-                ['created_at', "DESC"]
-            ]
+            include:[{all:true, nested: true}], order: [["createdAt","DESC"]]
         })
             .then((datosEncontrados) => {
                 
-            return res.send(datosEncontrados)
                 if (datosEncontrados.length == 0) {
                     errors.message = "No hay resultados para su criterio de busqueda"
                     res.locals.errors = errors
                     return res.render("resultadoBusqueda")
 
-                }else{
-                    return res.render('resultadoBusqueda', { posteo: datosEncontrados })
-
+                }else{ 
+                    return res.render('resultadoBusqueda', { datos: datosEncontrados })
                 }
             })
             .catch((error) => {

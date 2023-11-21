@@ -63,17 +63,34 @@ borrar: function (req,res) {
         }
 },
 edit: function (req,res) {
-    let idPost= req.params.id
+    let idPost = req.params.id
+
         if (req.session.user != undefined) {
             posteos.update({
                 url : req.body.url,
                 pieImg: req.body.pieImg
             },
-            { where : {id :idPost}})    
+            { where : {id :idPost}})   
+             
             return res.redirect('/usuarios/miperfil')
         } else {
             return res.render(`/posteos/detalle/${req.params.id}`)
         }
+},
+
+editPost: function (req, res){
+    let id = req.params.id;
+
+    db.Posteo.findByPk(id,{
+        include:[{all:true, nested: true}]
+    })
+    .then(function(result){
+        // return res.send(result)
+        return res.render('editarPost', {posteo: result})
+    })
+    .catch(function(error){
+        return res.send(error)
+    }) 
 },
 
 agregarComment: function (req, res) {

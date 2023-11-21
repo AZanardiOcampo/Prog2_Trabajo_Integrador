@@ -13,38 +13,63 @@
             <%- include('./partials/header') %>
 
     <% } %>
-<main>
+    <main>
         <section class="center main-content">
-        <h1 class="h1-register">Resultados de búsqueda:</h1>
-        </section>
-        <div class="user-detail container">
-            <section class="top main-content">
-                <img class="profile" src="<%= datos %>" alt="">
-                <div class="info-usuario">
-                    <h1 class="h1-register"><%= datos.nombreUsuario %></h1> 
-                    <a class="follow" href="">Seguir</a>
-                    <ul class="meta">
-                        <li>100 post</li>
-                        <li>200 seguidores</li>
-                        <li>300 seguidos</li>
+            
+            <% for( let i = 0; i < datos.length; i++ ) { %>
+            
+            <article class="post">
+                <div class="info-usuario ">
+                    
+                    <img src="<%= datos[i].posteosAUsuarios.fotoPerfil %>" alt="" class="fotoPerfil">
+                    
+                    <h4>
+                        <a href="usuarios/detalle/<%= datos[i].usuarioId %>"><%= datos[i].posteosAUsuarios.nombreUsuario %></a>
+                    </h4>
+                </div>
+                <div class="post-body">
+                    <a href="/posteos/detalle/<%= datos[i].id %>">
+                        <img src= <%= datos[i].url %> alt="">
+                    </a>
+                </div>
+                <ul class="post-reacciones">
+                    <li>
+                        <i class="fa-regular fa-heart"></i>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-comment"></i>
+                    </li>
+                </ul>
+
+
+                <div class="post-comentarios">
+                    <p><h3 class="pieDeFoto"><%= datos[i].posteosAUsuarios.nombreUsuario %>: <%= datos[i].pieImg %></h3></p>
+                    <h4>Comentarios</h4>
+                    <ul>
+
+                        <% for( let j = 0; j < datos[i].posteosAComentarios.length; j++ ) { %>
+                          
+                            <li>
+                                <a href="/usuarios/detalle/<%= datos[i].posteosAComentarios[j].usuarioId %>"><%= datos[i].posteosAComentarios[j].comentarioAUsuario.nombreUsuario %> :</a>
+                                <span><%= datos[i].posteosAComentarios[j].comentario  %></span>
+                            </li>
+
+                        <% } %>
+
+                        <a href="/posteos/detalle/<%= datos[i].id %>">Ver más...</a>
+
                     </ul>
                 </div>
-            </section>
-            <section class="bottom">
-                <article class="post">
-                <% for( let j = 0; j < datos.length; j++ ) { %>
-                    <a href="/posteos/detalle/<%= datos[j].id %>">
-                        <img src="<%= datos[j].url %>" alt="">
-                    </a>
-                    <% } %>
-                </article>
-            </section>
-        </div>
+                
+            </article>
+
+            <% } %>
+
+        </section>    
     </main>
 
-    
-
 <%- include('./partials/footer') %>
+
 </body>
 
 </html>
