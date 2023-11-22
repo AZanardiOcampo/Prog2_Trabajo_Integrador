@@ -14,7 +14,7 @@
 
     <% } %>
 
-    <main>
+    <main class="mainDetallePost">
         <div class="post-detail container">
             <section class="center main-content post">
                 <div class="info-usuario">
@@ -33,7 +33,7 @@
                         <input type="text" class="input" placeholder="Agregar comentario" name="comentario">
                         <button type="submit">Comentar</button>
                     </form>
-                    <div>
+                    <div class="comentarioBlanco">
                <% for( let j = 0; j < posteo.posteosAComentarios.length; j++ ) { %>        
                         <article class="comment">
                                 <img src="<%= posteo.posteosAComentarios[j].comentarioAUsuario.fotoPerfil %>" alt="" class="fotoPerfil">
@@ -47,11 +47,11 @@
                     <% if (locals.user != undefined && locals.user.id == posteo.usuarioId){%>
                         <div class="borrarPost">
                             <form action="/posteos/borrar/<%= posteo.id %>" method="post">
-                                <button type="submit">Borrar Post</button>
+                                <button class="botonDetallePost" type="submit">Borrar Post</button>
                             </form>
                         <div class="editarPost">
                         <form action="/posteos/editarpost/<%= posteo.id %>" method="post">
-                        <button type="submit" class="botonEdit">Editar</button>
+                        <button type="submit" class="botonDetallePost">Editar</button>
                         </form>
                         </div>
                         <% } %>

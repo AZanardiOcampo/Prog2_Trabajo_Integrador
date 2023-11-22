@@ -22,6 +22,9 @@ body {
     padding: 0;
     color:#777
 }
+label{
+    font-weight: bold;
+}
 /* navigation */
 header {
     position: fixed;
@@ -81,7 +84,6 @@ header {
 
 /* Main */
 main {
-    /* background-image: url('/Prog2_Trabajo_Integrador/Proyecto/public/img/52caebcbf6663e0bc5169b8053e65285.jpg');*/
     background: #ff00cc;  
     background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
     background: linear-gradient(to right, #333399, #ff00cc);
@@ -91,8 +93,93 @@ main {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    padding: 100px 0;
+    padding: 180px 0;
     min-height: 600px;
+}
+
+.mainDetallePost{
+    background: #ff00cc;  
+    background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
+    background: linear-gradient(to right, #333399, #ff00cc);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 150px 0;
+    min-height: 600px;
+}
+
+.mainLogin{
+    background: #ff00cc;  
+    background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
+    background: linear-gradient(to right, #333399, #ff00cc);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 320px 0;
+    min-height: 600px;
+}
+
+.mainNuevoPost{
+    background: #ff00cc;  
+    background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
+    background: linear-gradient(to right, #333399, #ff00cc);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 335px 0;
+    min-height: 600px;
+}
+
+.mainEditarP{
+    background: #ff00cc;  
+    background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
+    background: linear-gradient(to right, #333399, #ff00cc);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 280px 0;
+    min-height: 600px;
+}
+
+.mainRegister{
+    background: #ff00cc;  
+    background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
+    background: linear-gradient(to right, #333399, #ff00cc);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 110px 0;
+    min-height: 600px;
+}
+
+.romance{
+    height: 100%;
+    width: 100%;
+}
+
+.comentarioBlanco{
+    background-color: white;
+    border: #000;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
 }
 
 .main-content {
@@ -209,12 +296,15 @@ main {
 .h4-detalle{
     color: white;
     font-weight: bold;
+    font-weight: bold;
+    font-size: 22px;
 }
 
-.comments div {
+.comments {
     margin-top: 20px;
     padding-top: 10px;
     border-top: 1px solid #ddd;
+    height: 30%;
 }
 .comment {
     display: flex;
@@ -231,11 +321,11 @@ main {
 }
 .comment .text {
     font-size: 12px;
-    color: rgb(255, 255, 255);
+    color: black;
     font-size: 18px;
 }
-.comment .content {
-    line-height: 1;
+.content {
+    color: black;
 }
 .comment-form{
     background: #fff;
@@ -243,6 +333,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: black;
     border-radius: 5px;
 }
 .comment-form input {
@@ -340,7 +431,11 @@ label{
 
 .h1-register{
     color: white;
+    font-weight: bold;
+    font-weight: bold;
+    font-size: 35px;
 }
+
 
 .form-register{
     width: 100%;
@@ -360,4 +455,25 @@ label{
     color: rebeccapurple;
     font-weight: bold;
     border-radius: 1px;
+}
+
+.botonDetallePost{
+    margin-top: 10px;
+    font-size: 20px;
+    color: rebeccapurple;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.botonDetallePostB{
+    margin-top: 2px;
+    font-size: 20px;
+    color: rebeccapurple;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.input{
+    font-weight: bold;
+    color: black;
 }
