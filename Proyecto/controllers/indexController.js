@@ -59,12 +59,19 @@ const indexController = {
                 })
                 .catch((error)=> {
 
-                    console.log(error);
+                    // console.log(error);
                     if(error.errors[0].message == "email must be unique"){
                         errors.message = "Ese email ya fue utilizado"
                         res.locals.errors = errors
                         return res.render("registracion")
-                    }else{
+                    }
+                    
+                    if(error.errors[0].message == "nombreUsuario must be unique"){
+                        errors.message = "Ese Nombre de Usuario ya fue utilizado"
+                        res.locals.errors = errors
+                        return res.render("registracion")}
+
+                    else{
                         return res.send(error)
                     }
                     

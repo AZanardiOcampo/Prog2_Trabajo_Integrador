@@ -45,7 +45,7 @@ const usuariosController = {
          res.render('editarPerfil')
      },
      editarPost: function(req, res){
-        
+         let errors = {};
          let infoNueva = {
             nombreUsuario: req.body.nombreUsuario, 
             email: req.body.email,
@@ -74,11 +74,27 @@ const usuariosController = {
         )
             .then(function (result) {
                 console.log(infoNueva);
-                req.session.user = result
+                req.session.user.email = infoNueva.email;
+                req.session.user.fotoPerfil = infoNueva.fotoPerfil;
+                req.session.user.fechaNac = infoNueva.fechaNac;
+                req.session.user.nombreUsuario = infoNueva.nombreUsuario;
+
                 return res.redirect('/usuarios/miperfil')
             })
             .catch(function (error) {
-                return res.send(error)
+               if(error.errors[0].message == "email must be unique"){
+                  errors.message = "Ese email ya fue utilizado"
+                  res.locals.errors = errors
+                  return res.render("editarPerfil")}
+
+               if(error.errors[0].message == "nombreUsuario must be unique"){
+                  errors.message = "Ese Nombre de Usuario ya fue utilizado"
+                  res.locals.errors = errors
+                  return res.render("editarPerfil")}
+
+                  else {
+               return res.send(error)
+            }
             })
      },
    

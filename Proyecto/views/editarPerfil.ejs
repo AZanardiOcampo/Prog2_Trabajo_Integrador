@@ -22,6 +22,11 @@
             <p><label for="foto">Nueva Foto de perfil</label></p>
             <p><input id="foto" type="text" name="fotoPerfil" value=""></p>
             
+            <% if(locals.errors){ %>
+                <p style="color: red;" class=“mensajeError”>
+                    <%= errors.message %>
+                </p>
+                <% } %>
             <button class="botonR" type="submit">Enviar</button>
         </form>
         </section>

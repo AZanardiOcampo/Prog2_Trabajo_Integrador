@@ -5,7 +5,7 @@ use proyecto;
 create table usuario (
       id                        int           unsigned primary key auto_increment,
 	email                   varchar(50)           not null unique,
-      nombreUsuario           varchar(50)         not null,
+      nombreUsuario           varchar(50)         not null unique,
      fotoPerfil              varchar(200),          
      clave                   varchar(200)          not null,
      fechaNac                   date              not null,

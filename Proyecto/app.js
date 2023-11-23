@@ -40,7 +40,7 @@ app.use(function (req,res,next) {
   /**Si existe la cokkie del usuario y no existe el usuario en session*/
   if (req.cookies.userId != undefined && req.session.user== undefined) {
     let idUsuarioCookie=req.cookies.userId;
-    db.User.findByPk(idUsuarioCookie)
+    db.Usuario.findByPk(idUsuarioCookie)
     .then((user)=>{
       /*Cargamos el usuario encontrado en la session*/
       req.session.user=user.dataValues;
